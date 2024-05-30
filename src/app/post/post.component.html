@@ -1,1 +1,8 @@
-<p>post works!</p>
+<div class="bg-danger-subtle text-dark p-3 m-2">
+    <p>
+        {{title}}
+    </p>
+    <h1> {{fromParent}} </h1>
+
+    <app-post-list [fromPostParent] = "postParentMessage" ></app-post-list>
+</div>
