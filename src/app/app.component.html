@@ -7,9 +7,10 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <h1>Welcome to app compontet</h1>
-<app-post [fromParent]="parentMessage"></app-post>
+{{ message }}
+<app-post [fromParent]="parentMessage" (messageEvent)="reciveMessage($event)"></app-post>
 <app-navbarbasic></app-navbarbasic>
-
+<p>{{ fromChildOutput }}</p>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
