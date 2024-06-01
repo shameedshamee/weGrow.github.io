@@ -1,0 +1,21 @@
+<div class="border border-primary bg-info-subtle p-3 m-2">
+    <h1>Welcome to PracticeBlock</h1>
+    <!--  Types of Display Data  in Angular -->
+     <div class="">
+     <!-- String Interpolation "{{}}" -String interpolation used to show dynamic dat insdie the view -->
+        {{ message }}
+     <!-- Property Binding "[]"-->
+     <!-- <img src="{{ imgUrl }}" alt="" width="10%" > -->
+        <img [src] ="imgUrl" alt="" width="10%">
+     <!-- Class Binding -->
+     <p [class.text-red] = "bool">Class Binding Demo</p>
+     <!-- Style Binding you need to learn HTML DOM style object -->
+     <h1 [style.color] = "bool? 'red' : 'blue' "> Style Binding </h1>
+     <!-- Event Binding -->
+     <button (click)="buttonClick()" class="btn btn-outline-primary btn-lg btn-block"> Click Me to Light the text RED</button>
+    
+    
+    
+    </div>
+
+</div>

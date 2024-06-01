@@ -26,6 +26,6 @@ export class PostComponent implements OnInit {
   }
 
   sendMessage(){
-    this.messageEvent.emit(this.outputChildMessage);
+     this.messageEvent.emit(this.outputChildMessage);
   }
 }
