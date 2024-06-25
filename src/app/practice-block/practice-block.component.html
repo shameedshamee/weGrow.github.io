@@ -58,7 +58,20 @@
                -we use ngfor diretive to render an array inside the View
                - Ngfor Directive is a structural Directive.
                - with Ngfor Directive we can Manipulate the DOM
-         -->
+         
+               ngStyle and ngClass 
+                  - ngStyle Directive is used to add styles to an element
+                  - ngClass Directive is used to add classes to an element
+               
+               Structural Directive Vs Attribute Directive
+               - Structural Directive - Manipulate the DOM , With the Strucutral Directive we can maniplate the DOM(Document Object Model) by adding and removing HTML Elements to the DOM
+                - *ngif
+                - *ngfor
+                - *ngswitch
+               - Attribute Directive - Manipulate the properties of an element , With the Attribute Diretive we an only change the Apperance of the DOM 
+                - ngStyle
+                - ngClass
+            -->
       <div class="row">
          <div class="col-2">
             <p>Fetching Using NgFor Directive</p>
@@ -88,9 +101,82 @@
                <button class="btn btn-danger btn-sm" (click)="onDelete(i)">Delete</button></li>
             </ul>
          </div>
-         
-         
-         
+    
       </div>
+      <hr>
+      <div class="row">
+         <div class="col-6">
+            <h1>NgSwitch Cases</h1>
+      <div class="">
+         <button (click)="onClickBtn('green')" class="btn btn-success btn-sm m-1">Green</button>
+         <button (click)="onClickBtn('red')" class="btn btn-danger btn-sm m-1">Red</button>
+         <button (click)="onClickBtn('black')" class="btn btn-dark btn-sm m-1">Black</button>
+      </div>
+         <div class="m-1 p-1" [ngSwitch] ="colorButton">
+            <div *ngSwitchCase="'green'">GREEN</div>
+            <div *ngSwitchCase="'red'">RED</div>
+            <div *ngSwitchCase="'black'">BLACK</div>
+            <div *ngSwitchDefault>Not Selected Any </div>
+         </div>
+      </div>
+      </div>
+      <div class=""
+      [ngStyle]="{
+         color: bool ? 'red' : 'blue',
+         textTransform: bool ? 'uppercase' :  'lowercase',
+      }"
+      >
+         This is regrding NgStyle Directive(you can also click button on top for changes to reflect)
+      </div>
+      <hr>
+      <div class="border row m-3 p-1 border-dark">
+         <div class="col-12 border border-dark">
+            <h1> User Details Form</h1>
+            <input type="text" placeholder="User Name" class="form-control m-1 p-1" [(ngModel)]="userName"> 
+            <input type="email" placeholder="User E-Mail Address" class="form-control m-1 p-1"  [(ngModel)]="userEmail">
+            <textarea rows="3" placeholder="Address details" class="form-control m-1 p-1"  [(ngModel)]="userAddress"></textarea> 
+            <button class="btn btn-success  m-1 p-2" (click)="onSave()">Save Data</button>
+         </div>
+         <div class="col-12 border-dark border">
+            <h1>Saved Details</h1>
+            <div class="table-responsive" *ngIf="userArray.length > 0; else noData">
+               <table class="table table-striped table-hover">
+                  <thead>
+                     <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let user of userArray; let index = index">
+                        <td>{{ index + 1 }}</td> 
+                        <td>{{ user.userName }}</td>
+                        <td>{{ user.userEmail }}</td>
+                        <td>{{ user.userAddress }}</td>
+                        <td>
+                           <button class="btn btn-primary btn-sm" >Edit</button>
+                           <button class="btn btn-danger btn-sm" (click)="onClickDelete(index)">Delete</button>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <!-- Angular - PIPE
+       Pipes are used to trasforming data into a partocular format when we only need that data transformed 'in' a template. or the HTML View
+         - Uppercase Pipe
+         - Lowercase Pipe
+         - Currency Pipe
+         - Date Pipe
+         - Json Pipe
+         - Async Pipe
+         - Slice Pipe
+         - Percent Pipe
+         - Decimal / Number Pipe
+      -->
     </div>
 </div>

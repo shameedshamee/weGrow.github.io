@@ -24,6 +24,15 @@ export class PracticeBlockComponent {
   postURL!: string;
   addBackground!: boolean;
 
+   // for directives exerise
+
+   userName!: string;
+   userEmail!: string;
+   userAddress!: string;
+
+   userArray: Array<any> = [];
+
+   
   bool:boolean = false;
   buttonClick(){
     this.bool = !this.bool;
@@ -72,5 +81,26 @@ export class PracticeBlockComponent {
   onDelete(index: number): void {
     // let index =this.objArray.indexOf(post);
     this.objArray.splice(index, 1);
+  }
+
+  colorButton:string = "Not selected"
+
+  onClickBtn(status: string): void{
+    this.colorButton=status;
+  }
+
+
+  // for directives exerise
+  onSave(){
+    this.userArray.push({
+      "userName": this.userName,
+      "userEmail": this.userEmail,
+      "userAddress": this.userAddress
+    });
+    console.log(this.userArray);
+  }
+
+  onClickDelete(index:any){
+    this.userArray.splice(index, 1);
   }
 }
